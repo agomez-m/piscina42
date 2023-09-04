@@ -3,48 +3,39 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lquehec <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: javperez <javperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/22 15:01:28 by lquehec           #+#    #+#             */
-/*   Updated: 2023/08/22 15:01:42 by lquehec          ###   ########.fr       */
+/*   Created: 2023/08/29 16:53:25 by agomez-m          #+#    #+#             */
+/*   Updated: 2023/08/30 13:47:44 by javperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_header.h"
+#include "head.h"
 
-void	ft_error(void)
+int	main(void)
 {
-	write (2, "Error\n", 6);
-}
+	t_map	map;
+	int		j;
+	char	**rows;
 
-void	ft_error_map(void)
-{
-	write (2, "map error\n", 10);
-}
-
-void	ft_exit(void)
-{
-	ft_error_map();
-	exit(1);
-}
-
-int	main(int argc, char **argv)
-{
-	int	i;
-
-	i = 0;
-	argc--;
-	argv++;
-	while (i < argc)
+	map = initialize_map();
+	rows = (char *[])
 	{
-		ft_init(argc, argv[i]);
-		if (i < argc - 1)
-			ft_putchar('\n');
-		i++;
-	}
-	if (!argc)
+		"....o.o..",
+		".o..oooo..",
+		"....oooo..",
+		"....oooooo",
+		NULL
+	};
+	map.matrix = create_map_matrix(rows);
+	map = ft_solver(map);
+	print_map(map);
+	j = 0;
+	while (map.matrix[j] != NULL)
 	{
-		ft_init(argc, argv[i]);
+		free(map.matrix[j]);
+		j++;
 	}
+	free(map.matrix);
 	return (0);
 }

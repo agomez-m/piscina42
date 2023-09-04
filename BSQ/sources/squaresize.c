@@ -1,33 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_struct.h                                        :+:      :+:    :+:   */
+/*   squaresize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lquehec <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: javperez <javperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/22 15:28:06 by lquehec           #+#    #+#             */
-/*   Updated: 2023/08/22 15:28:07 by lquehec          ###   ########.fr       */
+/*   Created: 2023/08/29 16:49:45 by agomez-m          #+#    #+#             */
+/*   Updated: 2023/08/29 18:20:11 by javperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_STRUCT_H
-# define FT_STRUCT_H
+#include "head.h"
 
-typedef struct s_map
+int	square_size(t_square square)
 {
-	char	empty;
-	char	obs;
-	char	full;
-	char	**matrix;
-	int		is_valid;
-}	t_map;
-
-typedef struct s_square
-{
-	int	x_start;
-	int	y_start;
-	int	x_end;
-	int	y_end;
-}	t_square;
-
-#endif
+	return (square.x_end - square.x_start + 1);
+}

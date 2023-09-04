@@ -1,8 +1,9 @@
-SRCS_DIR = ./srcs/
+SRCS_DIR = ./sources/
 
-SRC = main.c ft_check_map.c funciones4.c funciones3.c ft_get_map.c \
-		ft_init.c ft_manage_file.c ft_solver.c \
-		ft_split.c funciones1.c funciones2.c
+SRC = main.c checksquare.c fillsquare.c findsquare.c sizes.c ft_strcopy.c \
+		printlarguestsquare.c solver.c squaresize.c printmap.c \
+		ft_strlen.c create_map_matrix.c initialize_map.c\
+	
 
 SRCS = $(addprefix $(SRCS_DIR), $(SRC))
 
@@ -12,7 +13,7 @@ HEADER_DIR = ./includes/
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror 
 
 OUTPUT = bsq
 
